@@ -21,7 +21,7 @@ const NewExpense = props => {
   };
   const amountChangedHandler = e => {
     setUserInput(prevState => {
-      return { ...prevState, amount: e.target.value };
+      return { ...prevState, amount: +e.target.value };
     });
   };
   const dateChangedHandler = e => {
@@ -33,7 +33,7 @@ const NewExpense = props => {
   const submitHandler = e => {
     e.preventDefault();
     props.new({ ...userInput });
-    setUserInput({ date: "", title: "", amount: "" });
+    setUserInput({ ...userInput, title: "", amount: "" });
   };
 
   return (
@@ -46,6 +46,7 @@ const NewExpense = props => {
               type="text"
               onChange={titleChangedHandler}
               value={userInput.title}
+              autoFocus
             />
           </div>
           <div className="new-expense__control">
@@ -65,7 +66,6 @@ const NewExpense = props => {
               min="2019-01-01"
               max="2022-12-31"
               onChange={dateChangedHandler}
-              value={userInput.date}
             />
           </div>
         </div>

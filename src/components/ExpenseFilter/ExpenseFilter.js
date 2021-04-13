@@ -1,21 +1,22 @@
-import React from "react";
-
-import "./ExpensesFilter.css";
-
-const ExpensesFilter = () => {
+import "./ExpenseFilter.css";
+import Card from "../Card/Card";
+const ExpenseFilter = props => {
   return (
-    <div className="expenses-filter">
+    <Card className="expenses-filter">
       <div className="expenses-filter__control">
         <label>Filter by year</label>
-        <select>
+        <select onChange={props.filterHandler} value={props.year}>
           <option value="2022">2022</option>
           <option value="2021">2021</option>
           <option value="2020">2020</option>
           <option value="2019">2019</option>
+          <option value="ALL" >
+            ALL
+          </option>
         </select>
       </div>
-    </div>
+    </Card>
   );
 };
 
-export default ExpensesFilter;
+export default ExpenseFilter;
