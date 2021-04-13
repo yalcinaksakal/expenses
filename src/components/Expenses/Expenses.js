@@ -1,11 +1,11 @@
 import "./Expenses.css";
 import ExpenseDate from "../ExpenseDate/ExpenseDate";
-
+import Card from "../Card/Card";
 function Expenses(props) {
   const expenses = [];
   props.expenses.map(expense =>
     expenses.push(
-      <div key={expense.date} className="expense-item">
+      <Card key={expense.date} className="expense-item">
         <ExpenseDate date={expense.date} />
         <div className="expense-item__description">
           <h2>{expense.title}</h2>
@@ -13,11 +13,11 @@ function Expenses(props) {
             ${expense.amount.toFixed(2)}
           </div>
         </div>
-      </div>
+      </Card>
     )
   );
 
-  return <div className="Expenses">{expenses}</div>;
+  return <Card className="Expenses">{expenses}</Card>;
 }
 
 export default Expenses;
