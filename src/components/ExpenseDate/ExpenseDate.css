@@ -1,0 +1,16 @@
+.Date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.Date div {
+  padding-right: 5px;
+}
+
+@media (min-width: 580px) {
+  .Date {
+    flex-direction: row;
+  }
+}
