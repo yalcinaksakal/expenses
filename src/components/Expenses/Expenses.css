@@ -1,7 +1,7 @@
 .Expenses {
   width: 96%;
   margin: 20px auto;
-  background: rgba(0, 0, 0, 0.898);
+  background: rgb(152, 200, 248);
   display: flex;
   flex-direction: column;
   align-items: center;

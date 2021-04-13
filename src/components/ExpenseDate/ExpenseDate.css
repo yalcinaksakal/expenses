@@ -9,7 +9,7 @@
   padding-right: 5px;
 }
 
-@media (min-width: 580px) {
+@media (min-width: 450px) {
   .Date {
     flex-direction: row;
   }

@@ -1,5 +1,8 @@
 import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 import "./App.css";
+import { useState } from "react";
+
 function App() {
   const expenses = [
     {
@@ -22,10 +25,17 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+
+  const [expensesState, setExpenses] = useState(expenses);
+
+  const newExpenseHandler = newExpense => {
+    console.log(newExpense);
+  };
+
   return (
     <div className="App">
       <h1>Expenses</h1>
-
+      <NewExpense new={newExpenseHandler} />
       <Expenses expenses={expenses} />
     </div>
   );
