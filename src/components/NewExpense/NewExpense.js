@@ -34,6 +34,7 @@ const NewExpense = props => {
     e.preventDefault();
     props.new({ ...userInput });
     setUserInput({ ...userInput, title: "", amount: "" });
+    props.cancel();
   };
 
   return (
@@ -70,6 +71,7 @@ const NewExpense = props => {
           </div>
         </div>
         <div className="new-expense__actions">
+          <button onClick={props.cancel}>CANCEL</button>
           <button type="submit">ADD</button>
         </div>
       </form>

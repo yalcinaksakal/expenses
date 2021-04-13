@@ -39,13 +39,23 @@ function App() {
   const filterHandler = e => {
     setFilterYear(e.target.value);
   };
+
+  const [showNewExpenseEl, setNewExpenseEl] = useState(false);
+
+  const newExpense = () => {
+    setNewExpenseEl(prevState => !prevState);
+  };
+
   return (
     <div className="App">
       <h1>Expenses</h1>
+      {showNewExpenseEl ? (
+        <NewExpense new={newExpenseHandler} cancel={newExpense} />
+      ) : (
+        <button onClick={newExpense}>Add Expense</button>
+      )}
       <ExpenseFilter filterHandler={filterHandler} year={filterYear} />
       <Expenses expenses={expensesState} year={filterYear} />
-
-      <NewExpense new={newExpenseHandler} />
     </div>
   );
 }
