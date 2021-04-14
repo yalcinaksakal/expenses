@@ -3,7 +3,7 @@ import NewExpense from "./components/NewExpense/NewExpense";
 import "./App.css";
 import { useState } from "react";
 import ExpenseFilter from "./components/ExpenseFilter/ExpenseFilter";
-
+import ExpensesChart from "./components/ExpensesChart/ExpensesChart";
 const expenses = [
   {
     id: "e1",
@@ -33,7 +33,7 @@ function App() {
 
   const newExpenseHandler = newExpense => {
     newExpense.id = `e${expensesState.length + 1}`;
-
+    if (!newExpense.date) newExpense.date = new Date();
     setExpenses(prevState => [...prevState, newExpense]);
   };
   const filterHandler = e => {
@@ -46,6 +46,12 @@ function App() {
     setNewExpenseEl(prevState => !prevState);
   };
 
+  const exp = year => {
+    return year === "ALL"
+      ? expensesState
+      : expensesState.filter(exp => exp.date.getFullYear() === +year);
+  };
+
   return (
     <div className="App">
       <h1>Expenses</h1>
@@ -55,7 +61,8 @@ function App() {
         <button onClick={newExpense}>Add Expense</button>
       )}
       <ExpenseFilter filterHandler={filterHandler} year={filterYear} />
-      <Expenses expenses={expensesState} year={filterYear} />
+      <ExpensesChart className="chart" expenses={exp(filterYear)} />
+      <Expenses expenses={exp(filterYear)} />
     </div>
   );
 }

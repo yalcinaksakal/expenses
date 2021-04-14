@@ -10,7 +10,7 @@ const NewExpense = props => {
   const [userInput, setUserInput] = useState({
     title: "",
     amount: "",
-    date: "",
+    date: null,
   });
 
   const titleChangedHandler = e => {
@@ -32,6 +32,7 @@ const NewExpense = props => {
 
   const submitHandler = e => {
     e.preventDefault();
+
     props.new({ ...userInput });
     setUserInput({ ...userInput, title: "", amount: "" });
     props.cancel();

@@ -2,13 +2,10 @@ import "./Expenses.css";
 import ExpenseDate from "../ExpenseDate/ExpenseDate";
 import Card from "../Card/Card";
 function Expenses(props) {
-  const exp =
-    props.year === "ALL"
-      ? props.expenses
-      : props.expenses.filter(exp => exp.date.getFullYear() === +props.year);
   let expenses = [];
-  if (exp.length)
-    exp.map(expense =>
+
+  if (props.expenses.length)
+    props.expenses.map(expense =>
       expenses.push(
         <Card key={expense.id} className="expense-item">
           <ExpenseDate date={expense.date} />
