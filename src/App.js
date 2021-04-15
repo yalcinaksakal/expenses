@@ -62,7 +62,7 @@ function App() {
       )}
       <ExpenseFilter filterHandler={filterHandler} year={filterYear} />
       <ExpensesChart className="chart" expenses={exp(filterYear)} />
-      <Expenses expenses={exp(filterYear)} />
+      <Expenses expenses={exp(filterYear)} year={filterYear} />
     </div>
   );
 }
